@@ -9,11 +9,9 @@ module.exports = (req, res, next) => {
 
 		jwt.verify(authenticate, secret, function(err, decodedToken) {
 			if (err) {
-				res
-					.status(401)
-					.json({
-						message: "Invalid Token - unfortunately you shall not pass!"
-					});
+				res.status(401).json({
+					message: "Invalid Token - unfortunately you shall not pass!"
+				});
 			} else {
 				req.token = decodedToken;
 
